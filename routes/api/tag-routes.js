@@ -22,23 +22,23 @@ router.get('/', async (req, res) => {
 
 // find a single tag by its `id`
 // be sure to include its associated Product data
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const singleTag = await Tag.findByPk(req.params.id, {
-//       // JOIN with travellers, using the Trip through table
-//       include: [{ model: Traveller, through: Trip, as: 'location_travellers' }]
-//     });
+router.get('/:id', async (req, res) => {
+  try {
+    const singleTag = await Tag.findByPk(req.params.id, {
+      // JOIN with travellers, using the Trip through table
+      include: [{ model: Product}]
+    });
 
-//     if (!locationData) {
-//       res.status(404).json({ message: 'No location found with this id!' });
-//       return;
-//     }
+    if (!singleTag) {
+      res.status(404).json({ message: 'No tag found with this id!' });
+      return;
+    }
 
-//     res.status(200).json(locationData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.status(200).json(singleTag);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 router.post('/', (req, res) => {
