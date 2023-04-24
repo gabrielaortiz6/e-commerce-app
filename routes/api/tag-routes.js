@@ -37,7 +37,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 router.post('/', async (req, res) => {
   try {
     const tagData = await Tag.create(req.body);
@@ -53,7 +52,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const tagData = await Trip.destroy({
+    const tagData = await Tag.destroy({
       where: { id: req.params.id }
     });
     if (!tagData) {
