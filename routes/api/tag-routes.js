@@ -28,9 +28,8 @@ router.get('/:id', async (req, res) => {
       {
         where: {
           id: req.params.id,
-          // JOIN with travellers, using the Trip through table
-          include: [{ model: Product }]
         },
+        include: [{ model: Product }]
       });
     res.json(tagData);
   } catch (err) {
