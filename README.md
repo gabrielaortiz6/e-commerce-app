@@ -2,11 +2,9 @@
 
 ## Description
 
-Internet retail, also known as **e-commerce**, is the largest sector of the electronics industry, generating an estimated $29 trillion in 2019. E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to their prevalence, understanding the fundamental architecture of these platforms will benefit you as a full-stack web developer.
+This application provides a functional back-end for an e-commerce online store. The purpose of this application is to create an easy and adaptable back end to get, create, update, and delete data. As an ever-increasing sector of the electronics industry, this is quite a useful app for any user trying to start up their own e-commerce store.  
 
-Your task is to build the back end for an e-commerce site by modifying starter code. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database.
-
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the acceptance criteria being met. You’ll need to submit a link to the video and add it to the readme of your project.
+This application uses Sequelize, Express.js, and Node.js. 
 
 ## User Story
 
@@ -49,7 +47,7 @@ The following animation shows the application's POST, PUT, and DELETE routes for
 Your walkthrough video should also show the POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
 
 ## GitHub
-
+Feel free to contact me via [GitHub](https://github.com/gabrielaortiz6/e-commerce-app).
 
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
