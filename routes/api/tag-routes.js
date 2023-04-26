@@ -42,12 +42,47 @@ router.post('/', async (req, res) => {
     const tagData = await Tag.create(req.body);
     res.status(200).json(tagData);
   } catch (err) {
-    res.status(400).json(err);
+    if (err.name === 'SequelizeValidationError') {
+      res.status(400).json({ message: err.message });
+    } else {
+      res.status(500).json({ message: 'Unable to create tag.' });
+    }
   }
 });
 
-router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+// router.put('/:id', async (req, res) => {
+//   // update a tag's name by its `id` value
+//   try {
+//     const tagData = await Tag.update(
+//       {
+//         name: req.body.name
+//       },
+//      {
+//        where: {
+//         id: req.params.id
+//        },
+//       });
+//     } catch (err) 
+//     {
+//       res.status(500).json(err)   
+//      }
+// });
+
+router.put('/:id', async (req, res) => {
+  try {
+    const tag = await Tag.findOne({ where: { id: req.params.id } });
+
+    if (!tag) {
+      return res.status(404).json({ error: 'Tag not found' });
+    }
+
+    await tag.update(req.body);
+
+    res.json(tag);
+    
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 router.delete('/:id', async (req, res) => {
