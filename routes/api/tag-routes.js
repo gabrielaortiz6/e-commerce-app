@@ -50,24 +50,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// router.put('/:id', async (req, res) => {
-//   // update a tag's name by its `id` value
-//   try {
-//     const tagData = await Tag.update(
-//       {
-//         name: req.body.name
-//       },
-//      {
-//        where: {
-//         id: req.params.id
-//        },
-//       });
-//     } catch (err) 
-//     {
-//       res.status(500).json(err)   
-//      }
-// });
-
 router.put('/:id', async (req, res) => {
   try {
     const tag = await Tag.findOne({ where: { id: req.params.id } });
@@ -79,7 +61,7 @@ router.put('/:id', async (req, res) => {
     await tag.update(req.body);
 
     res.json(tag);
-    
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
